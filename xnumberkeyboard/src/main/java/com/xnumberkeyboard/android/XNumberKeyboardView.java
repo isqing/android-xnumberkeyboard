@@ -32,6 +32,8 @@ public class XNumberKeyboardView extends KeyboardView implements KeyboardView.On
     private Rect mDeleteDrawRect;
 
     private IOnKeyboardListener mOnKeyboardListener;
+    private String inputText;
+    private int inputTextSize=0;
 
     public XNumberKeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -147,12 +149,25 @@ public class XNumberKeyboardView extends KeyboardView implements KeyboardView.On
         if (primaryCode == Keyboard.KEYCODE_DELETE) {
             if (mOnKeyboardListener != null)
                 mOnKeyboardListener.onDeleteKeyEvent();
+            inputTextSize--;
+            if (inputTextSize<=0){
+                inputTextSize=0;
+            }
         }
         // 点击了数字按键
         else if (primaryCode != KEYCODE_EMPTY) {
             if (mOnKeyboardListener != null) {
-                mOnKeyboardListener.onInsertKeyEvent(Character.toString(
-                        (char) primaryCode));
+                if (inputTextSize>6){
+                    inputTextSize=6;
+                }
+                if (inputTextSize<6) {
+                    mOnKeyboardListener.onInsertKeyEvent(Character.toString(
+                            (char) primaryCode));
+                    inputTextSize++;
+                    if (inputTextSize==6) {
+                        mOnKeyboardListener.onInputMaxEvent();
+                    }
+                }
             }
         }
     }
@@ -245,5 +260,10 @@ public class XNumberKeyboardView extends KeyboardView implements KeyboardView.On
          * 点击了删除按键。
          */
         void onDeleteKeyEvent();
+
+        /**
+         * 输入数字够6位
+         */
+        void onInputMaxEvent();
     }
 }

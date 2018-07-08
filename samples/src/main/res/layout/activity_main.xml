@@ -3,36 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rv_keyboard"
     android:background="#f5f5f5">
-
-    <EditText
-        android:id="@+id/edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="56dp" />
-
     <Button
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/edit_text"
         android:layout_marginTop="10dp"
         android:text="Shuffle"
         android:textAllCaps="false" />
 
-    <com.xnumberkeyboard.android.XNumberKeyboardView
-        android:id="@+id/view_keyboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#b0b0b0"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:keyBackground="@drawable/selector_key_background"
-        android:keyTextColor="#000000"
-        android:shadowColor="@android:color/transparent"
-        android:shadowRadius="0"
-        app:xnkv_deleteBackgroundColor="#d2d2d2"
-        app:xnkv_deleteDrawable="@mipmap/keyboard_backspace"
-        app:xnkv_deleteWidth="22dp" />
+    <!--<com.xnumberkeyboard.android.PasswordEditText-->
+        <!--android:id="@+id/edit_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:background="@null"-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_above="@+id/view_keyboard"/>-->
+
+
+    <!--<com.xnumberkeyboard.android.XNumberKeyboardView-->
+        <!--android:id="@+id/view_keyboard"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="#b0b0b0"-->
+        <!--android:focusable="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:keyBackground="@drawable/selector_key_background"-->
+        <!--android:keyTextColor="#000000"-->
+        <!--android:shadowColor="@android:color/transparent"-->
+        <!--android:shadowRadius="0"-->
+        <!--app:xnkv_deleteBackgroundColor="#d2d2d2"-->
+        <!--app:xnkv_deleteDrawable="@mipmap/keyboard_backspace"-->
+        <!--app:xnkv_deleteWidth="22dp" />-->
 
 </RelativeLayout>
